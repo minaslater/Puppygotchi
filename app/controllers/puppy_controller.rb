@@ -16,6 +16,9 @@ class PuppyController < ApplicationController
     render plain: "Congrats! You just adopted #{puppy.name}"
   end
 
+  def update
+  end
+
   private
 
   def puppy_params
