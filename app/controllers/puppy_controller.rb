@@ -4,6 +4,17 @@ class PuppyController < ApplicationController
   end
 
   def show
-    render plain: "You've adopted a puppy!"
+    render plain: "Here is your puppy!"
+  end
+
+  def create
+    puppy = Puppy.create(puppy_params)
+    render plain: "Congrats! You just adopted #{puppy.name}"
+  end
+
+  private
+
+  def puppy_params
+    params.require(:puppy).permit(:name)
   end
 end
