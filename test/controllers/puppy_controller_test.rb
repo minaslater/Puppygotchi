@@ -15,6 +15,6 @@ class PuppyControllerTest < ActionDispatch::IntegrationTest
     number_of_puppies = Puppy.all.count
     post "/puppy", params: { puppy: { name: "Lulu" } }
 
-    assert_equal(number_of_puppies + 1, Puppy.all.count, "puppy record not found in db")
+    assert_equal(number_of_puppies + 1, Puppy.all.count, "puppy record not found")
   end
 end

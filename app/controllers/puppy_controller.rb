@@ -1,27 +1,28 @@
 class PuppyController < ApplicationController
   def index
-    render plain: "Welcome to Puppygotchi"
+    @puppies = Puppy.all
   end
 
   def show
-    render plain: "Here is your puppy!"
+    @puppy = Puppy.find(param[:id])
   end
 
   def new
-    render plain: "What would you like to name your new friend?"
+    @puppy = Puppy.new
   end
 
   def create
-    puppy = Puppy.create(puppy_params)
-    render plain: "Congrats! You just adopted #{puppy.name}"
+    Puppy.create(puppy_params)
   end
 
   def update
+    puppy_to_update = Puppy.find(params[:id])
+    puppy_to_update.update(puppy_params)
   end
 
   private
 
   def puppy_params
-    params.require(:puppy).permit(:name)
+    params.require(:puppy).permit(:name, :belly, :bladder, :bowel, :bored)
   end
 end
