@@ -4,7 +4,7 @@ class PuppyController < ApplicationController
   end
 
   def show
-    @puppy = Puppy.find(param[:id])
+    @puppy = Puppy.find(params[:id])
   end
 
   def new
