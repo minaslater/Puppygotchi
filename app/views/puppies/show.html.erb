@@ -1,0 +1,19 @@
+<h1><%= @puppy.name %></h1>
+<h2>Current Conditions:</h2>
+<ul>
+  <li>Belly: <%= @puppy.stomach %>/10</li>
+  <li>Bladder: <%= @puppy.bladder %>/10</li>
+  <li>Bowel: <%= @puppy.bowel %>/10</li>
+  <li>Bored?
+    <% if @puppy.bored %>
+      No
+    <% else %>
+      Yes
+    <% end %>
+  </li>
+</ul>
+
+<!-- Placeholder for buttons/links -->
+Feed
+Walk
+Play

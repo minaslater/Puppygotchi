@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: "puppy#index"
-  resources :puppy
+  root to: "puppies#index"
+  resources :puppies
 end
