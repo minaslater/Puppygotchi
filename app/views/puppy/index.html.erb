@@ -1,0 +1,20 @@
+<h1>Welcome to Puppygotchi!</h1>
+<h2>Your Kennel:</h2>
+<table border=1>
+  <tr>
+    <th>Name:</th>
+    <th>Belly:</th>
+    <th>Bladder:</th>
+    <th>Bowel:</th>
+    <th>Bored?</th>
+  </tr>
+  <% @puppies.each do |puppy| %>
+    <tr>
+      <td><%= puppy.name %></td>
+      <td><%= puppy.stomach %></td>
+      <td><%= puppy.bladder %></td>
+      <td><%= puppy.bowel %></td>
+      <td><%= puppy.bored %></td>
+    </tr>
+  <% end %>
+</table>
