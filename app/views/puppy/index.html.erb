@@ -10,7 +10,7 @@
   </tr>
   <% @puppies.each do |puppy| %>
     <tr>
-      <td><%= puppy.name %></td>
+      <td><%= link_to puppy.name, puppy_path(puppy.id) %></td>
       <td><%= puppy.stomach %></td>
       <td><%= puppy.bladder %></td>
       <td><%= puppy.bowel %></td>
@@ -18,3 +18,6 @@
     </tr>
   <% end %>
 </table>
+<p>
+<%= link_to "Adopt a Puppy", action: "new" %>
+</p>
