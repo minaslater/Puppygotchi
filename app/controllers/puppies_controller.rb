@@ -21,13 +21,17 @@ class PuppiesController < ApplicationController
   end
 
   def update
-    puppy_to_update = Puppy.find(params[:id])
-    puppy_to_update.update(puppy_params)
+    @puppy = Puppy.find(params[:id])
+    @puppy.update(update_params)
   end
 
   private
 
   def puppy_params
-    params.require(:puppy).permit(:name, :belly, :bladder, :bowel, :bored)
+    params.require(:puppy).permit(:name)
+  end
+
+  def update_params
+    params.permit(:stomach, :bladder, :bowel, :bored)
   end
 end
