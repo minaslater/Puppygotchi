@@ -1,4 +1,4 @@
-class PuppyController < ApplicationController
+class PuppiesController < ApplicationController
   def index
     @puppies = Puppy.all
   end
@@ -12,7 +12,12 @@ class PuppyController < ApplicationController
   end
 
   def create
-    Puppy.create(puppy_params)
+    if Puppy.create(puppy_params)
+      flash[:notice] = "Congrats!"
+    else
+      flash[:alert] = "Oh no!"
+    end
+    redirect_to action: "index"
   end
 
   def update
