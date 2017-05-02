@@ -21,13 +21,25 @@ class PuppiesController < ApplicationController
   end
 
   def update
-    puppy_to_update = Puppy.find(params[:id])
-    puppy_to_update.update(puppy_params)
+    @puppy = Puppy.find(params[:id])
+    @puppy.update(update_params)
+    needs
+    redirect_to action: "show"
   end
 
   private
 
   def puppy_params
-    params.require(:puppy).permit(:name, :belly, :bladder, :bowel, :bored)
+    params.require(:puppy).permit(:name)
+  end
+
+  def update_params
+    params.permit(:stomach, :bladder, :bowel, :bored)
+  end
+
+  def needs
+    flash[:alert] = "#{@puppy.name} is hungry!" if @puppy.stomach <= 3
+    flash[:alert] = "#{@puppy.name} needs to go for a walk!" if @puppy.bladder >= 10 || @puppy.bowel >=10
+    flash[:notice] = "Play with #{@puppy.name}!" if @puppy.bored == true
   end
 end
