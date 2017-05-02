@@ -6,14 +6,14 @@
   <li>Bowel: <%= @puppy.bowel %>/10</li>
   <li>Bored?
     <% if @puppy.bored %>
-      No
-    <% else %>
       Yes
+    <% else %>
+      No
     <% end %>
   </li>
 </ul>
 
 <!-- Placeholder for buttons/links -->
-<%= link_to("Feed", puppy_path(@puppy, stomach: 999, bladder: 999), method: :put) %>
-Walk
-Play
+<%= link_to("Feed", puppy_path(@puppy, stomach: 10, bladder: @puppy.bladder + 2, bowel: @puppy.bowel + 3), method: :put) %>
+<%= link_to("Walk", puppy_path(@puppy, stomach: @puppy.stomach - 2, bladder: 0, bowel: 0), method: :put) %>
+<%= link_to("Play", puppy_path(@puppy, stomach: @puppy.stomach - 3, bored: false), method: :put) %>

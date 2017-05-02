@@ -23,6 +23,8 @@ class PuppiesController < ApplicationController
   def update
     @puppy = Puppy.find(params[:id])
     @puppy.update(update_params)
+    needs
+    redirect_to action: "show"
   end
 
   private
@@ -33,5 +35,11 @@ class PuppiesController < ApplicationController
 
   def update_params
     params.permit(:stomach, :bladder, :bowel, :bored)
+  end
+
+  def needs
+    flash[:notice] = "#{@puppy.name} is hungry!" if @puppy.stomach <= 3
+    flash[:alert] = "#{@puppy.name} needs to go for a walk!" if @puppy.bladder >= 10 || @puppy.bowel >=10
+    flash[:notice] = "Play with #{@puppy.name}!" if @puppy.bored == true
   end
 end
