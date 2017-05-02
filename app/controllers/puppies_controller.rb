@@ -38,7 +38,7 @@ class PuppiesController < ApplicationController
   end
 
   def needs
-    flash[:notice] = "#{@puppy.name} is hungry!" if @puppy.stomach <= 3
+    flash[:alert] = "#{@puppy.name} is hungry!" if @puppy.stomach <= 3
     flash[:alert] = "#{@puppy.name} needs to go for a walk!" if @puppy.bladder >= 10 || @puppy.bowel >=10
     flash[:notice] = "Play with #{@puppy.name}!" if @puppy.bored == true
   end
