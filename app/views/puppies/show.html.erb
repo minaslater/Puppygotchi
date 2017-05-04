@@ -1,18 +1,25 @@
-<h1><%= @puppy.name %></h1>
-<h2>Current Conditions:</h2>
-<ul>
-  <li>Belly: <%= @puppy.stomach %>/10</li>
-  <li>Bladder: <%= @puppy.bladder %>/10</li>
-  <li>Bowel: <%= @puppy.bowel %>/10</li>
-  <li>Bored?
-    <% if @puppy.bored %>
-      Yes
-    <% else %>
-      No
-    <% end %>
-  </li>
-</ul>
-
+<div class="header">
+  <h1><%= @puppy.name %></h1>
+</div>
+<div class="background-image">
+</div>
+<div class="body">
+  <h2>Current Conditions:</h2>
+  <div class="attibutes">
+    <ul>
+      <li>Belly: <%= @puppy.stomach %>/10</li>
+      <li>Bladder: <%= @puppy.bladder %>/10</li>
+      <li>Bowel: <%= @puppy.bowel %>/10</li>
+      <li>Bored?
+        <% if @puppy.bored %>
+          Yes
+        <% else %>
+          No
+        <% end %>
+      </li>
+    </ul>
+</div>
+</div>
 <!-- Placeholder for buttons/links -->
 <%= link_to("Feed", puppy_path(@puppy, stomach: 10, bladder: @puppy.bladder + 2, bowel: @puppy.bowel + 3, bored: true), method: :put) %>
 <%= link_to("Walk", puppy_path(@puppy, stomach: @puppy.stomach - 2, bladder: 0, bowel: 0, bored: true), method: :put) %>
