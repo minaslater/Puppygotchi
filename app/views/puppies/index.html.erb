@@ -6,11 +6,11 @@
     <%= link_to "ADOPT", action: "new" %>
   </p>
 </div>
-<div class="body">
+<div>
   <h2>Your Kennel:</h2>
   <ul class="kennel">
     <% @puppies.each do |puppy| %>
-        <li><%= link_to puppy.name, puppy_path(puppy.id) %></li>
+        <li><%= link_to puppy.name, puppy_path(puppy.id), class: "home__kennel--link" %></li>
     <% end %>
   </ul>
 </div>

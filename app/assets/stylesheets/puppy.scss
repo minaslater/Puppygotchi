@@ -6,6 +6,7 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #88CCF1;
 }
 
 .header {
@@ -18,18 +19,20 @@ h1 {
   margin: 0;
   font-size: 75px;
   color: white;
+  font-family: "Dancing Script", cursive;
 }
 
 h2 {
   font-size: 50px;
   margin: 0;
+  margin-top: 20px;
   text-align: center;
 }
 
 .adopt-button {
   position: absolute;
   bottom: -5%;
-  right: 20%;
+  right: 15%;
   margin: 0;
   background-color: yellow;
   height: 7rem;
@@ -42,6 +45,8 @@ h2 {
     position: relative;
     top: -.5em;
     margin-top: 50%;
+    font-size: 2em;
+    text-decoration: none;
   }
 }
 
@@ -55,20 +60,20 @@ div.background-image {
   position: relative;
 }
 
-.body {
-  background-color: #88CCF1;
-}
-
 .kennel {
   width: 30%;
   margin: auto;
+  margin-bottom: 50px;
   padding: 0;
   border: 1px solid black;
   list-style: none;
 
   li {
     text-align: center;
-    font-size: 24pt;
+    font-size: 22pt;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   li:nth-child(even) {
@@ -77,5 +82,30 @@ div.background-image {
 
   li:nth-child(odd) {
     background: #EEC0C6;
+  }
+}
+
+.home__kennel--link {
+    text-decoration: none;
+    color: black;
+
+  &:hover {
+    font-size: 1.2em;
+  }
+}
+
+.footer {
+  background-color: #3943B7;
+  padding: 2em;
+
+  p {
+    margin: 0;
+    color: white;
+    display: inline;
+
+    img {
+      width: 30px;
+      height: auto;
+    }
   }
 }
