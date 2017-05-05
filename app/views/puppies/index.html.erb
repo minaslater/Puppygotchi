@@ -2,28 +2,15 @@
   <h1>Welcome to Puppygotchi!</h1>
 </div>
 <div class="background-image">
+  <p class="adopt-button">
+    <%= link_to "ADOPT", action: "new" %>
+  </p>
 </div>
 <div class="body">
   <h2>Your Kennel:</h2>
-  <table border=1>
-    <tr>
-      <th>Name:</th>
-      <th>Belly:</th>
-      <th>Bladder:</th>
-      <th>Bowel:</th>
-      <th>Bored?</th>
-    </tr>
+  <ul class="kennel">
     <% @puppies.each do |puppy| %>
-      <tr>
-        <td><%= link_to puppy.name, puppy_path(puppy.id) %></td>
-        <td><%= puppy.stomach %></td>
-        <td><%= puppy.bladder %></td>
-        <td><%= puppy.bowel %></td>
-        <td><%= puppy.bored %></td>
-      </tr>
+        <li><%= link_to puppy.name, puppy_path(puppy.id) %></li>
     <% end %>
-  </table>
+  </ul>
 </div>
-<p>
-<%= link_to "Adopt a Puppy", action: "new" %>
-</p>
