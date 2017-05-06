@@ -102,10 +102,15 @@ div.background-image {
     margin: 0;
     color: white;
     display: inline;
-
-    img {
-      width: 30px;
-      height: auto;
-    }
   }
+}
+
+.contacts {
+  padding-left: 30px;
+}
+
+.footer__link--image {
+  display: inline;
+  width: 30px;
+  height: auto;
 }
