@@ -2,27 +2,36 @@
   <h1><%= @puppy.name %></h1>
 </div>
 <div class="background-image">
-</div>
-<div class="body">
-  <h2>Current Conditions:</h2>
-  <div class="attibutes">
-    <ul>
-      <li>Belly: <%= @puppy.stomach %>/10</li>
-      <li>Bladder: <%= @puppy.bladder %>/10</li>
-      <li>Bowel: <%= @puppy.bowel %>/10</li>
-      <li>Bored?
+  <div class="attributes">
+    <div class="attribute__bubble">
+      <p class="attribute__bubble--stats"><%= @puppy.stomach %>
+          Belly
+      </p>
+    </div>
+    <div class="attribute__bubble">
+      <p class="attribute__bubble--stats"><%= @puppy.bladder %>
+        Bladder</p>
+    </div>
+    <div class="attribute__bubble">
+      <p class="attribute__bubble--stats"><%= @puppy.bowel %>
+        Bowel</p>
+    </div>
+    <div class="attribute__bubble">
+      <p class="attribute__bubble--stats">
         <% if @puppy.bored %>
           Yes
         <% else %>
           No
         <% end %>
-      </li>
-    </ul>
+        Bored?
+      </p>
+    </div>
   </div>
 </div>
-
-<%= link_to("Feed", puppy_path(@puppy, stomach: 10, bladder: @puppy.bladder + 2, bowel: @puppy.bowel + 3, bored: true), method: :put) %>
-<%= link_to("Walk", puppy_path(@puppy, stomach: @puppy.stomach - 2, bladder: 0, bowel: 0, bored: true), method: :put) %>
-<%= link_to("Play", puppy_path(@puppy, stomach: @puppy.stomach - 3, bored: false), method: :put) %>
+<div class="actions">
+  <%= link_to("Feed", puppy_path(@puppy, stomach: 10, bladder: @puppy.bladder + 2, bowel: @puppy.bowel + 3, bored: true), method: :put) %>
+  <%= link_to("Walk", puppy_path(@puppy, stomach: @puppy.stomach - 2, bladder: 0, bowel: 0, bored: true), method: :put) %>
+  <%= link_to("Play", puppy_path(@puppy, stomach: @puppy.stomach - 3, bored: false), method: :put) %>
+</div>
 
 <%= link_to("Back to Kennel", puppies_path) %>

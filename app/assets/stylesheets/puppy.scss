@@ -114,3 +114,43 @@ div.background-image {
   width: 30px;
   height: auto;
 }
+
+.attributes {
+  position: absolute;
+  bottom: -10%;
+  width: 100%;
+  text-align: center;
+
+  div:nth-child(even) {
+    background: #8FE388;
+  }
+
+  div:nth-child(odd) {
+    background: #EEC0C6;
+  }
+}
+
+.attribute__bubble {
+  display: inline-block;
+  margin: 0;
+  background-color: yellow;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid black;
+
+  p {
+   display: inline-block;
+   position: relative;
+   top: -.5em;
+   margin-bottom: 0;
+   font-size: 2em;
+   text-decoration: none;
+   color: white;
+  }
+}
+
+.actions {
+  height: 200px;
+}
