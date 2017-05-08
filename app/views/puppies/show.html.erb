@@ -5,7 +5,7 @@
   <div class="attributes">
     <div class="attribute__bubble">
       <p class="attribute__bubble--stats"><%= @puppy.stomach %>
-          Belly
+          <br>Belly
       </p>
     </div>
     <div class="attribute__bubble">
@@ -29,9 +29,9 @@
   </div>
 </div>
 <div class="actions">
-  <%= link_to("Feed", puppy_path(@puppy, stomach: 10, bladder: @puppy.bladder + 2, bowel: @puppy.bowel + 3, bored: true), method: :put) %>
-  <%= link_to("Walk", puppy_path(@puppy, stomach: @puppy.stomach - 2, bladder: 0, bowel: 0, bored: true), method: :put) %>
-  <%= link_to("Play", puppy_path(@puppy, stomach: @puppy.stomach - 3, bored: false), method: :put) %>
+  <%= link_to("Feed", puppy_path(@puppy, stomach: 10, bladder: @puppy.bladder + 2, bowel: @puppy.bowel + 3, bored: true), method: :put, class: "actions__link") %>
+  <%= link_to("Walk", puppy_path(@puppy, stomach: @puppy.stomach - 2, bladder: 0, bowel: 0, bored: true), method: :put, class: "actions__link") %>
+  <%= link_to("Play", puppy_path(@puppy, stomach: @puppy.stomach - 3, bored: false), method: :put, class: "actions__link") %>
 </div>
 
 <%= link_to("Back to Kennel", puppies_path) %>

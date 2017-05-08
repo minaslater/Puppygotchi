@@ -45,8 +45,13 @@ h2 {
     position: relative;
     top: -.5em;
     margin-top: 50%;
-    font-size: 2em;
+    font-size: 1.6em;
     text-decoration: none;
+    color: black;
+
+    &:hover {
+      font-size: 2em;
+    }
   }
 }
 
@@ -139,18 +144,32 @@ div.background-image {
   border-radius: 50%;
   text-align: center;
   border: 1px solid black;
-
-  p {
-   display: inline-block;
-   position: relative;
-   top: -.5em;
-   margin-bottom: 0;
-   font-size: 2em;
-   text-decoration: none;
-   color: white;
-  }
+}
+.attribute__bubble--stats {
+  display: inline-block;
+  position: relative;
+  top: -.5em;
+  margin-bottom: 0;
+  font-size: 2em;
+  text-decoration: none;
+  color: white;
 }
 
 .actions {
-  height: 200px;
+  text-align: center;
+  padding: 10% 0 10% 0;
+  font-size: 1.5em;
+}
+
+.actions__link {
+  text-decoration: none;
+  color: black;
+  border-radius: 10%;
+  border: 1px solid black;
+  padding: 2px;
+  background-color: yellow;
+
+  &:hover {
+    font-size: 1.2em;
+  }
 }
