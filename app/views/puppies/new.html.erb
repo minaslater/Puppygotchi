@@ -1,5 +1,13 @@
-<h1>What would you like to name your new friend?</h1>
-<%= form_for(@puppy) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+<div class="header">
+  <h1>Adoption Station</h1>
+</div>
+<div class="background-image">
+</div>
+<div>
+  <h2>What would you like to name your new friend?</h2>
+  <%= form_for(@puppy) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+  <%= link_to("Back to Kennel", puppies_path) %>
+</div>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
     <title>Puppygotchi</title>
     <%= csrf_meta_tags %>
 
@@ -18,5 +20,14 @@
       <% end %>
     </div>
     <%= yield %>
+    <div class="footer">
+      <p class="copyright">
+        &copy 2017 Mina Slater
+      </p>
+      <p class="contacts">
+        <%= link_to image_tag("github.png", class: "footer__link--image"), "https://github.com/minaslater", class: "footer__link" %>
+        <%= link_to image_tag("twitter.png", class: "footer__link--image"), "https://twitter.com/Minar528", class: "footer__link" %>
+      </p>
+    </div>
   </body>
 </html>
