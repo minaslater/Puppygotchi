@@ -19,7 +19,18 @@ class PuppyAgingService
     time_difference_in_hours.round
   end
 
-  def update_puppy
-
+  def update_puppy(hours)
+    every_three_hours = hours / 3
+    if hours <= 0
+      @puppy
+    else
+      every_three_hours.times do
+        @puppy.update(stomach: @puppy.stomach - 1, bladder: @puppy.bladder + 1, bowel: @puppy.bowel + 1)
+      end
+      if hours >= 5
+        @puppy.update(bored: true)
+      end
+      @puppy
+    end
   end
 end
