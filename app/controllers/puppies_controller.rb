@@ -4,7 +4,8 @@ class PuppiesController < ApplicationController
   end
 
   def show
-    @puppy = Puppy.find(params[:id])
+    young_puppy = Puppy.find(params[:id])
+    @puppy = PuppyAgingService.new(young_puppy).process
   end
 
   def new
