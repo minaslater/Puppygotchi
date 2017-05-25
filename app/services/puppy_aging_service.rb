@@ -30,6 +30,6 @@ class PuppyAgingService
                     bladder: @puppy.bladder + 1,
                     bowel: @puppy.bowel + 1)
     end
-    @puppy.update(bored: true) if hours >= 5
+    @puppy.update(bored: true) if lapsed_time >= 3
   end
 end

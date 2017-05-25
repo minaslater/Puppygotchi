@@ -13,10 +13,11 @@ class PuppiesController < ApplicationController
   end
 
   def create
-    if Puppy.create(puppy_params)
+    puppy = Puppy.create(puppy_params)
+    if puppy.errors.messages.empty?
       flash[:notice] = "Congrats!"
     else
-      flash[:alert] = "Oh no!"
+      flash[:alert] = puppy.errors.messages
     end
     redirect_to action: "index"
   end
