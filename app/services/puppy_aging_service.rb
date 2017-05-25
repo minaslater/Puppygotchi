@@ -21,16 +21,15 @@ class PuppyAgingService
 
   def update_puppy(hours)
     every_three_hours = hours / 3
-    if hours <= 0
-      @puppy
-    else
-      every_three_hours.times do
-        @puppy.update(stomach: @puppy.stomach - 1, bladder: @puppy.bladder + 1, bowel: @puppy.bowel + 1)
-      end
-      if hours >= 5
-        @puppy.update(bored: true)
-      end
-      @puppy
+    change_stats(every_three_hours) if hours > 0
+  end
+
+  def change_stats(lapsed_time)
+    lapsed_time.times do
+      @puppy.update(stomach: @puppy.stomach - 1,
+                    bladder: @puppy.bladder + 1,
+                    bowel: @puppy.bowel + 1)
     end
+    @puppy.update(bored: true) if hours >= 5
   end
 end
