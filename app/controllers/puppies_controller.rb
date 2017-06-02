@@ -17,7 +17,10 @@ class PuppiesController < ApplicationController
     if puppy.errors.messages.empty?
       flash[:notice] = "Congrats!"
     else
-      flash[:alert] = puppy.errors.messages
+      error_messages = puppy.errors.messages
+      error_messages.each do |field, reason|
+        flash[:alert] += "#{field} #{reason}. "
+      end
     end
     redirect_to action: "index"
   end

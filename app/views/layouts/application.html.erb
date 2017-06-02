@@ -16,9 +16,7 @@
         <%= flash[:notice] %>
       <% end %>
       <% if flash[:alert] %>
-        <% flash[:alert].each do |field, reason| %>
-          <%= "#{field} #{reason[0]}" %>
-        <% end %>
+        <%= flash[:alert] %>
       <% end %>
     </div>
     <%= yield %>
