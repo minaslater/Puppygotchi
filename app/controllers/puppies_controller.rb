@@ -19,7 +19,7 @@ class PuppiesController < ApplicationController
     else
       error_messages = puppy.errors.messages
       error_messages.each do |field, reason|
-        flash[:alert] += "#{field} #{reason}. "
+        flash[:alert] = "#{field} #{reason}. "
       end
     end
     redirect_to action: "index"
