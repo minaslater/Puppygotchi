@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
   root to: "puppies#index"
+  resources :users
   resources :puppies
 end
