@@ -5,7 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
+    if @user.save
+      flash[:suceess] = "welcome!"
+    else
+      flash[:alert] = @user.errors.full_messages.to_sentence
+      redirect_to action: "new"
+    end
   end
 
   private
