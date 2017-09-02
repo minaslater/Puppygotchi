@@ -23,7 +23,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "user with incorrect password should result in error message" do
     post sessions_path, params: { email: "123@456.com", password: "chicken" }
-    assert_equal "something", flash[:alert]
+    assert_equal "email/password combination does not match", flash[:alert]
   end
 
   test "invalid email should redirect back to login" do
