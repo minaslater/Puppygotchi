@@ -8,11 +8,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = User.create(name: "Mina", email: "slater.mina@gmail.com", password: "barfoo", password_confirmation: "barfoo")
   end
 
+  # tests users#new
   test "should get new" do
     get new_user_url
     assert_response :success
   end
 
+  # tests users#create
   test "should create user" do
     before_count = User.count
     post users_url, params: @@valid_user_params
@@ -37,7 +39,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "valid user redirects to show" do
     post users_url, params: @@valid_user_params
-    assert_redirected_to controller: "users", action: "show", id: "2"
+    user = User.last
+    assert_redirected_to controller: "users", action: "show", id: user.id
   end
 
   test "invalid user should redirect to new" do
@@ -45,11 +48,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to controller: "users", action: "new"
   end
 
+  # tests users#show
   test "should get show" do
     get user_url(@user.id)
     assert_response :success
   end
 
+  # tests users#update
   test "should update user with correct params" do
     patch user_url(@user.id), params: { user: { name: "Kermit" } }
     assert_equal "Kermit", User.find(@user.id).name
@@ -80,6 +85,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to controller: "users", action: "edit", id: @user.id
   end
 
+  # tests user#destroy
   test "should delete user" do
     user = User.create(name: "Donald Duck", email: "dd@example.com", password: "quack", password_confirmation: "quack")
     before_count = User.count
