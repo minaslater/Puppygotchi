@@ -33,6 +33,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:success] = "byeeeeeeee!"
+      redirect_to root_path
+    else
+      flash[:alert] = @user.errors.full_messages.to_sentence
+      redirect_back(fallback_location: root_path) 
+    end
+  end
+
   private
 
     def user_params

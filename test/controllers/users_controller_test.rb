@@ -79,4 +79,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     patch user_url(@user.id), params: { user: { name: "", email: "mina@example.com" } }
     assert_redirected_to controller: "users", action: "edit", id: @user.id
   end
+
+  test "should delete user" do
+    user = User.create(name: "Donald Duck", email: "dd@example.com", password: "quack", password_confirmation: "quack")
+    before_count = User.count
+    delete user_url(user.id)
+    assert_equal before_count - 1, User.count 
+  end
+
+  test "successful deletion redirects to root" do
+    user = User.create(name: "Donald Duck", email: "dd@example.com", password: "quack", password_confirmation: "quack")
+    delete user_url(user.id)
+    assert_redirected_to root_path
+  end
 end
+
