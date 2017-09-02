@@ -8,4 +8,13 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+
+  def self.login(email, password)
+    @user = User.find_by(email: email)
+    if @user && @user.authenticate(password)
+      @user
+    else
+      false
+    end
+  end
 end
