@@ -57,7 +57,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should not update user with incorrect params" do
     patch user_url(@user.id), params: { user: { name: "" } }
-    assert_not_equal "", @user.name
+    assert_not_equal "", User.find(@user.id).name
   end
 
   test "valid updated user adds message to flash success" do
