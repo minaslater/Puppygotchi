@@ -1,4 +1,10 @@
-<div class="user-profile">
+<div class="user-profile__user-info">
   <%= @user.name %>
+  <%= link_to "Delete User", user_path(@user.id), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
-<%= link_to "Delete User", user_path(@user.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<ul class="user-profile__puppies-list">
+  <% @user.puppies.each do |puppy| %>
+    <li class="user-profile__puppies-list--puppy"><%= link_to puppy.name, puppy_path(puppy.id), class: "user-profile__puppies-list--puppy-link" %></li>
+  <% end %>
+</ul>
+
