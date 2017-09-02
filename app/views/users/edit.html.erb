@@ -1,0 +1,7 @@
+<%= form_for(@user) do |f| %>
+  <%= label_tag(:name, "Name:") %>
+  <%= f.text_field :name %>
+  <%= label_tag(:email, "Email:") %>
+  <%= f.email_field :email %>
+  <%= f.submit %>
+<% end %>
