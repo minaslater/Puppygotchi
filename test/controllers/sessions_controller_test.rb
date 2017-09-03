@@ -35,5 +35,16 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     post sessions_path, params: { email: "456@123.com", password: "welcome" }
     assert_equal "email/password combination does not match", flash[:alert]
   end
+
+  test "logging out should set session id to nil" do
+    post sessions_path, params: { email: "123@456.com", password: "welcome" }
+    delete session_path(1)
+    assert_nil session[:user_id]
+  end
+
+  test "logging out should redirect to root" do
+    delete session_path(1)
+    assert_redirected_to root_path
+  end
 end
 
