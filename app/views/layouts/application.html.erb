@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <div class="header">
+      <h1>Welcome to Puppygotchi!</h1>
+      <ul>
+        <% if @current_user %>
+          <li>
+            <%= link_to "Log Out", session_path(@current_user.id), data: { method: :delete } %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Log In", new_session_path %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
     <div>
       <% if flash[:notice] %>
         <%= flash[:notice] %>
