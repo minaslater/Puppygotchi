@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_current_user, only: [:edit, :update, :destroy]
+
   def new
     @user = User.new
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def create
@@ -19,11 +21,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "updated!"
       redirect_to action: "show", id: @user.id
@@ -34,7 +34,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     if @user.destroy
       flash[:success] = "byeeeeeeee!"
       redirect_to root_path
@@ -48,5 +47,16 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def validate_current_user
+      unless @current_user == @user
+        flash[:alert] = "Action not permitted" 
+        redirect_back(fallback_location: root_path)
+      end
+    end
+
+    def find_user
+      @user = User.find(params[:id])
     end
 end
