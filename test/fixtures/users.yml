@@ -1,0 +1,5 @@
+test_user:
+  name: Henson
+  email: 123@456.com
+  password_digest: $2a$10$r3Q5kplK072AZwXN.P4ztes7uv69fVQcRTU7sm8LnSdhFW/itB3r2 # welcome
+  # password_digest: $2a$10$sfjek4NO5YgIOU.7otnzFuM5pX67IgXsjD5S0uSimpbWG88Ncrpuy
