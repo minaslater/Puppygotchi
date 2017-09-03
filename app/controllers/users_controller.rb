@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "welcome!"
+      flash[:notice] = "welcome!"
       redirect_to action: "show", id: @user.id
     else
       flash[:alert] = @user.errors.full_messages.to_sentence
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      flash[:success] = "updated!"
+      flash[:notice] = "updated!"
       redirect_to action: "show", id: @user.id
     else
       flash[:alert] = @user.errors.full_messages.to_sentence
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:success] = "byeeeeeeee!"
+      flash[:notice] = "byeeeeeeee!"
       redirect_to root_path
     else
       flash[:alert] = @user.errors.full_messages.to_sentence

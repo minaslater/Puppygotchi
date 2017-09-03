@@ -29,7 +29,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "valid user adds message to flash success" do
     post users_url, params: @@valid_user_params
-    assert_equal "welcome!", flash[:success]
+    assert_equal "welcome!", flash[:notice]
   end
 
   test "invalid user adds messages to flash" do
@@ -70,7 +70,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "valid updated user adds message to flash success" do
     login_test_user(@user)
     patch user_url(@user.id), params: { user: { name: "Henson", email: "slater.mina@gmail.com" } }
-    assert_equal "updated!", flash[:success]
+    assert_equal "updated!", flash[:notice]
   end
 
   test "invalid update user adds messages to flash alert" do
@@ -106,5 +106,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     delete user_url(user.id)
     assert_redirected_to root_path
   end
+
+  # tests permissions
+  test "restricted user should result in alert" do
+    get edit_user_path(@user.id)
+    assert_equal "Action not permitted", flash[:alert]
+  end
+  
+  test "restricted user should redirect back" do
+    get edit_user_path(@user.id)
+    assert_redirected_to root_path
+  end
 end
+
 
