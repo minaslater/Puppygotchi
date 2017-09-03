@@ -7,13 +7,13 @@
 #   end
 # 
 #   test "/puppies/new is a valid route" do
-#     get "/puppy/new"
+#     get "/puppies/new"
 #     assert_response :success
 #   end
 # 
 #   test "post to /puppies makes a new Puppy" do
 #     number_of_puppies = Puppy.all.count
-#     post "/puppy", params: { puppy: { name: "Lulu" } }
+#     post "/puppies", params: { puppy: { name: "Lulu" } }
 # 
 #     assert_equal(number_of_puppies + 1, Puppy.all.count, "puppy record not found")
 #   end
