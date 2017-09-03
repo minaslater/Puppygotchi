@@ -16,7 +16,7 @@
       <ul>
         <% if @current_user %>
           <li>
-            <%= link_to "Log Out", session_path(@current_user.id), data: { method: :delete } %>
+            <%= link_to "Log Out", session_path(@current_user.id), method: :delete %>
           </li>
         <% else %>
           <li>
