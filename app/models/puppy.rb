@@ -1,5 +1,5 @@
 class Puppy < ApplicationRecord
   belongs_to :user
 
-  validates :name, length: { maximum: 12 }
+  validates :name, length: { maximum: 12 }, presence: true
 end
