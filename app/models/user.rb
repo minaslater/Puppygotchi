@@ -23,4 +23,7 @@ class User < ApplicationRecord
       false
     end
   end
+
+  def friends
+  end
 end
