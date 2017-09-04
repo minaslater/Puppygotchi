@@ -1,3 +1,7 @@
 test_puppy:
   name: Henson
+  stomach: 5 
+  bladder: 5
+  bowel: 5
+  bored: false
   user_id: 222
