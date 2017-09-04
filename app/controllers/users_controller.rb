@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :validate_current_user, only: [:edit, :update, :destroy]
 
+  def index
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+  end
+
   def new
     @user = User.new
   end
