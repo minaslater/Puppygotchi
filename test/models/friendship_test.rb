@@ -14,6 +14,6 @@ class FriendshipTest < ActiveSupport::TestCase
 
   test "should not create new friendship if duplicate" do
     @mina.friendship_one.create(friend_one_id: @aji.id)
-    assert_equal @mina.friend_ones.count, 1
+    assert_equal 0, @mina.friend_ones.count
   end
 end
