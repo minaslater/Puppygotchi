@@ -25,5 +25,6 @@ class User < ApplicationRecord
   end
 
   def friends
+    friend_ones + friend_twos
   end
 end
