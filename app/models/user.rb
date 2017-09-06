@@ -27,4 +27,8 @@ class User < ApplicationRecord
   def friends
     friend_ones + friend_twos
   end
+
+  def make_friends_with(user)
+    friendship_one.create(friend_one_id: user.id)
+  end
 end

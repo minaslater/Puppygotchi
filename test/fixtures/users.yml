@@ -9,3 +9,9 @@ test_user2:
   name: Mina
   email: 123@789.com
   password_digest: $2a$10$0KlcZ7lLdYZGla26DkLH4OBjfz/hGC89DCVxbFt9w5WG5Msaas5Jy # password
+
+test_user3:
+  id: 333
+  name: Jeremy
+  email: 456@789.com
+  password_digest: $2a$10$uXFhbFAVPVZJNuOC2b1llu2m5/E5angXLTZ0AKHaWVuh2KDiRTvaq # alcatraz
