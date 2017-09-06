@@ -2,10 +2,10 @@ class User < ApplicationRecord
   has_many :puppies, dependent: :destroy
 
   has_many :friend_ones, through: :friendship_one, source: :friend_one
-  has_many :friendship_one, foreign_key: :friend_two_id, class_name: "Friendship"
+  has_many :friendship_one, foreign_key: :friend_two_id, class_name: "Friendship", dependent: :destroy
 
   has_many :friend_twos, through: :friendship_two, source: :friend_two
-  has_many :friendship_two, foreign_key: :friend_one_id, class_name: "Friendship"
+  has_many :friendship_two, foreign_key: :friend_one_id, class_name: "Friendship", dependent: :destroy
 
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }

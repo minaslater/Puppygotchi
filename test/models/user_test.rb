@@ -78,6 +78,16 @@ class UserTest < ActiveSupport::TestCase
     aji.delete_friend(jeremy)
     assert_empty aji.friends
   end
+
+  test "should delete friendships when user is deleted" do
+    aji = users(:test_user)
+    jeremy = users(:test_user3) 
+    jeremy.make_friends_with(aji)
+    aji.destroy
+    friendships = [Friendship.where(friend_one_id: aji.id, friend_two_id: jeremy.id), Friendship.where(friend_one_id: aji.id, friend_two_id: jeremy.id)]
+    assert_equal 0, friendships[0].length
+    assert_equal 0, friendships[1].length
+  end
 end
 
 
