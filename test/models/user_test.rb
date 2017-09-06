@@ -63,4 +63,21 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = " " * 6
     assert_not @user.valid?
   end
+
+  test "should add friend with make_friend_with" do
+    aji = users(:test_user)
+    jeremy = users(:test_user3) 
+    jeremy.make_friends_with(aji)
+    assert_equal aji, jeremy.friend_ones.first
+  end
+
+  test "should remove friendship with delete_friend" do
+    aji = users(:test_user)
+    jeremy = users(:test_user3) 
+    jeremy.make_friends_with(aji)
+    aji.delete_friend(jeremy)
+    assert_empty aji.friends
+  end
 end
+
+

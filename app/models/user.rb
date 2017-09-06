@@ -14,6 +14,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  validates :password, presence: true
 
   def self.login(email, password)
     @user = User.find_by(email: email)
@@ -30,5 +31,17 @@ class User < ApplicationRecord
 
   def make_friends_with(user)
     friendship_one.create(friend_one_id: user.id)
+  end
+
+  def delete_friend(user)
+    friendship1 = Friendship.where(friend_one_id: id, friend_two_id: user.id)
+    friendship2 = Friendship.where(friend_one_id: user.id, friend_two_id: id)
+    if friendship1.any?
+      friendship1.delete_all
+    elsif friendship2.any?
+      friendship2.delete_all
+    else
+      nil
+    end
   end
 end

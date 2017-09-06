@@ -7,7 +7,7 @@ class Friendship < ApplicationRecord
   validates :friend_two_id, uniqueness: { scope: :friend_one_id }
 
   def friendship_combinations_cannot_duplicate
-    if Friendship.where(friend_one_id: friend_two_id, friend_two_id: friend_one_id).length > 0
+    unless Friendship.where(friend_one_id: friend_two_id, friend_two_id: friend_one_id).empty?
       errors.add(:friend_one_id, "already has this friend.")
     end
   end

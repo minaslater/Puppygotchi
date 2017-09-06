@@ -21,10 +21,4 @@ class FriendshipTest < ActiveSupport::TestCase
     @mina.friendship_one.create(friend_one_id: @aji.id)
     assert_equal 0, @mina.friend_ones.count
   end
-
-  test "should add friend with make_friend_with" do
-    jeremy = users(:test_user3) 
-    jeremy.make_friends_with(@aji)
-    assert_equal @aji, jeremy.friend_ones.first
-  end
 end
