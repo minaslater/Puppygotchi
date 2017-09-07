@@ -11,9 +11,16 @@
     </ul>
   <% end %>
 </div>
+Puppies:
 <ul class="user-profile__puppies-list">
   <% @user.puppies.each do |puppy| %>
     <li class="user-profile__puppies-list--puppy"><%= link_to puppy.name, puppy_path(puppy.id), class: "user-profile__puppies-list--puppy-link" %></li>
+  <% end %>
+</ul>
+Friends:
+<ul class="user-profile__friends-list">
+  <% @user.friends.each do |friend| %>
+    <li class="user-profile__friends-list--friend"><%= link_to friend.name, user_path(friend.id), class: "user-profile__friend-list--friend-link" %></li>
   <% end %>
 </ul>
 <div class="user-profile__adopt-button">
