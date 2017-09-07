@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    if @user.update(user_params)
+    if @user.update_attributes(user_params)
       flash[:notice] = "updated!"
       redirect_to action: "show", id: @user.id
     else
