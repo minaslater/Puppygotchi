@@ -1,28 +1,29 @@
 <div class="user-profile__user-info">
   <%= @user.name %>
-  <% if @current_user == @user %>
-    <ul class="user-profile__controls">
-      <li class="user-profile__controls--link">
-        <%= link_to "Edit User", edit_user_path(@user.id) %>
-      </li>
-      <li class="user-profile__controls--link">
-        <%= link_to "Delete User", user_path(@user.id), method: :delete, data: { confirm: "Are you sure?" } %>
-      </li>
-    </ul>
-  <% end %>
+  <ul class="user-profile__controls">
+    <%= @user_profile_presenter.display_profile_options %>
+  </ul>
 </div>
+
 Puppies:
 <ul class="user-profile__puppies-list">
   <% @user.puppies.each do |puppy| %>
     <li class="user-profile__puppies-list--puppy"><%= link_to puppy.name, puppy_path(puppy.id), class: "user-profile__puppies-list--puppy-link" %></li>
   <% end %>
 </ul>
+
 Friends:
 <ul class="user-profile__friends-list">
   <% @user.friends.each do |friend| %>
-    <li class="user-profile__friends-list--friend"><%= link_to friend.name, user_path(friend.id), class: "user-profile__friend-list--friend-link" %></li>
+    <li class="user-profile__friends-list--friend">
+      <%= link_to friend.name, user_path(friend.id), class: "user-profile__friend-list--friend-link" %>
+      <% if @current_user.id == @user.id %>
+        <%= link_to "Delete Friend", users_friendship_path(user_id: @current_user.id, id: friend.id), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
+
 <div class="user-profile__adopt-button">
   <%= link_to "ADOPT", controller: "puppies", action: "new" %>
 </div>
