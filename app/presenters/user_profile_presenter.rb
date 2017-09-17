@@ -7,11 +7,11 @@ class UserProfilePresenter
 
   def display_profile_options
     unless @current_user
-      add_friend_link
+      return
     end
     if @current_user == @user
       edit_user_link + delete_user_link
-    elsif @current_user.verify_frienship(@user)
+    elsif @current_user.verify_friendship?(@user)
       remove_friend_link
     else
       add_friend_link

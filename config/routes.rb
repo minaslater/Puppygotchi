@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "puppies#index"
-  resources :users do
+  resources :users
+  namespace :users do
     resources :friendships
   end
   resources :puppies

@@ -44,4 +44,15 @@ class User < ApplicationRecord
       nil
     end
   end
+
+  def verify_friendship?(user)
+    if Friendship.where(friend_one_id: id, friend_two_id: user.id).any?
+      true
+    elsif Friendship.where(friend_one_id: user.id, friend_two_id: id).any?
+      true
+    else
+      false
+    end
+  end
 end
+

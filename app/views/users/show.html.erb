@@ -17,7 +17,7 @@ Friends:
   <% @user.friends.each do |friend| %>
     <li class="user-profile__friends-list--friend">
       <%= link_to friend.name, user_path(friend.id), class: "user-profile__friend-list--friend-link" %>
-      <% if @current_user.id == @user.id %>
+      <% if @current_user && @current_user.id == @user.id %>
         <%= link_to "Delete Friend", users_friendship_path(user_id: @current_user.id, id: friend.id), method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
     </li>
