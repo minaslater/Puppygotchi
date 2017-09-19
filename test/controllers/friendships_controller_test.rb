@@ -95,7 +95,7 @@ class FriendshipsControllerTest < ActionDispatch::IntegrationTest
     @aji.make_friends_with(@jeremy)
     logout_test_user(@aji)
     delete users_friendship_url(@jeremy.id) 
-    assert_equal "Action not permitted.", flash[:alert]
+    assert_equal "Please log in", flash[:alert]
   end
 
   test "should redirect to root on destroy if not logged in" do

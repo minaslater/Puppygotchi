@@ -13,18 +13,14 @@ class PuppiesController < ApplicationController
   end
 
   def create
-    if @current_user
-      puppy = @current_user.puppies.new(puppy_params)
-      if puppy.save
-        flash[:notice] = "Congrats!"
-        redirect_to action: "show", id: puppy.id
-      else
-        flash[:alert] = puppy.errors.full_messages.to_sentence
-        redirect_to action: "new"
-      end
+    return if not_logged_in?
+    puppy = @current_user.puppies.new(puppy_params)
+    if puppy.save
+      flash[:notice] = "Congrats!"
+      redirect_to action: "show", id: puppy.id
     else
-      flash[:alert] = "Please log in"
-      redirect_to root_path
+      flash[:alert] = puppy.errors.full_messages.to_sentence
+      redirect_to action: "new"
     end
   end
 
