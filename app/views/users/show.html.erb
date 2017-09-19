@@ -8,7 +8,9 @@
 Puppies:
 <ul class="user-profile__puppies-list">
   <% @user.puppies.each do |puppy| %>
-    <li class="user-profile__puppies-list--puppy"><%= link_to puppy.name, puppy_path(puppy.id), class: "user-profile__puppies-list--puppy-link" %></li>
+    <li class="user-profile__puppies-list--puppy">
+      <%= link_to puppy.name, puppy_path(puppy.id), class: "user-profile__puppies-list--puppy-link" %>
+    </li>
   <% end %>
 </ul>
 
