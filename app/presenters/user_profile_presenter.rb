@@ -5,10 +5,8 @@ class UserProfilePresenter
     @v = view_context
   end
 
-  def display_profile_options
-    unless @current_user
-      return
-    end
+  def display_profile_controls
+    return unless @current_user
     if @current_user == @user
       edit_user_link + delete_user_link
     elsif @current_user.verify_friendship?(@user)
