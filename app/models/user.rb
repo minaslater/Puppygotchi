@@ -34,14 +34,21 @@ class User < ApplicationRecord
   end
 
   def delete_friend(user)
-    friendship1 = Friendship.where(friend_one_id: id, friend_two_id: user.id)
-    friendship2 = Friendship.where(friend_one_id: user.id, friend_two_id: id)
-    if friendship1.any?
-      friendship1.delete_all
-    elsif friendship2.any?
-      friendship2.delete_all
+    friendships = Friendship.where(friend_one_id: id, friend_two_id: user.id).or(Friendship.where(friend_one_id: user.id, friend_two_id: id))
+    if friendships.any?
+      friendships.delete_all
     else
       nil
     end
   end
+
+  def verify_friendship?(user)
+    friendships = Friendship.where(friend_one_id: id, friend_two_id: user.id).or(Friendship.where(friend_one_id: user.id, friend_two_id: id))
+    if friendships.any?
+      true
+    else
+      false
+    end
+  end
 end
+

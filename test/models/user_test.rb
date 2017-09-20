@@ -88,6 +88,12 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 0, friendships[0].length
     assert_equal 0, friendships[1].length
   end
-end
 
+  test "should verify friendship with method" do
+    aji = users(:test_user)
+    mina = users(:test_user2)
+    aji.make_friends_with(mina)
+    assert mina.verify_friendship?(aji)
+  end
+end
 

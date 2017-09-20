@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_profile_presenter = UserProfilePresenter.new(@current_user, @user, view_context)
   end
 
   def create
