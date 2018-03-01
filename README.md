@@ -1,24 +1,46 @@
-# README
+# Puppygotchi
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An Interactive virtual pet a la Tamagotchi powered by Ruby on Rails and PostgreSQL.
 
-Things you may want to cover:
+![puppygotchi graphic](puppygotchi.jpg =250x250)
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+Puppygotchi runs on Rails 5.0.2 
 
-* Configuration
+### Prerequisites
 
-* Database creation
+To instaill dependencies:
 
-* Database initialization
+`bundle install`
 
-* How to run the test suite
+## Running the tests
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the following command in the terminal:
 
-* Deployment instructions
+`rails test`
 
-* ...
+## Deployment
+
+Deloyed via Heroku [here](https://gentle-headland-58439.herokuapp.com)
+
+## Built With
+
+* [Rails](http://rubyonrails.org/) - The web framework used
+* [PostgreSQL](https://www.postgresql.org/) - Database
+* [bcrypt](https://rubygems.org/gems/bcrypt) - User authentication
+
+## Authors
+
+* **Mina Slater** - [Github](https://github.com/minaslater)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Shoutout to Liz Abinante ([@feministy](https://twitter.com/feministy)) for the Puppygotchi name and idea
+* Puppygotchi logo curtesy of DoodlingDev ([Github](https://github.com/doodlingdev))
