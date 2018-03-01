@@ -2,7 +2,7 @@
 
 An Interactive virtual pet a la Tamagotchi powered by Ruby on Rails and PostgreSQL.
 
-![puppygotchi graphic](puppygotchi.jpg =250x250)
+![puppygotchi graphic](puppygotchi.jpg)
 
 ## Getting Started
 
