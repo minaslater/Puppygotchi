@@ -18,11 +18,7 @@ class User < ApplicationRecord
 
   def self.login(email, password)
     @user = User.find_by(email: email)
-    if @user && @user.authenticate(password)
-      @user
-    else
-      false
-    end
+    @user if @user && @user.authenticate(password)
   end
 
   def friends
@@ -35,20 +31,11 @@ class User < ApplicationRecord
 
   def delete_friend(user)
     friendships = Friendship.where(friend_one_id: id, friend_two_id: user.id).or(Friendship.where(friend_one_id: user.id, friend_two_id: id))
-    if friendships.any?
-      friendships.delete_all
-    else
-      nil
-    end
+    friendships.delete_all if friendships.any?
   end
 
   def verify_friendship?(user)
     friendships = Friendship.where(friend_one_id: id, friend_two_id: user.id).or(Friendship.where(friend_one_id: user.id, friend_two_id: id))
-    if friendships.any?
-      true
-    else
-      false
-    end
+    friendships.any?
   end
 end
-

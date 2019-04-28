@@ -51,7 +51,7 @@ class PuppiesController < ApplicationController
         false
       end
     end
-    
+
     def needs
       flash[:alert] = "#{@puppy.name} is hungry!" if @puppy.stomach <= 3
       flash[:alert] = "#{@puppy.name} needs to go for a walk!" if @puppy.bladder >= 10 || @puppy.bowel >=10

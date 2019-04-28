@@ -37,7 +37,8 @@ group :development, :test do
   # Use sqlite3 as the database for development and testing
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'pry', '~> 0.12.2'
+  gem 'pry-byebug'
 end
 
 group :development do
